@@ -1,6 +1,7 @@
 package org.campus.employees;
 
 public class Employee {
+
     long id;
     String name;
     int age;
@@ -8,27 +9,15 @@ public class Employee {
     String gender;
     int fixedBugs;
     int defaultBugRate;
-
     double totalSalary;
-
-    public Employee(long id, String name, int age, double salary, String gender,
-                    int fixedBugs, int defaultBugRate) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.salary = salary;
-        this.gender = gender;
-        this.fixedBugs = fixedBugs;
-        this.defaultBugRate = defaultBugRate;
-    }
 
     public Employee() {
     }
 
 
     public double countSalaryAndBonus() {
-        double payFixedBugs =fixedBugs*0.02;
-        double payDefaultBugRate = (defaultBugRate >= 12 ? (0) : (salary*(0.05)));
+        double payFixedBugs = fixedBugs * 0.02;
+        double payDefaultBugRate = (defaultBugRate >= 12 ? (0) : (salary * (0.05)));
         totalSalary = salary + payFixedBugs + payDefaultBugRate;
         return totalSalary;
     }
