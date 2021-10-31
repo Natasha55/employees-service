@@ -1,4 +1,9 @@
 package org.campus.employees;
 
-public class Manager {
+public class Manager extends Employee {
+
+    public Manager() {
+    }
+
 }
+
