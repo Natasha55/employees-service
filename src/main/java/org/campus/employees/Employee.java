@@ -5,21 +5,11 @@ public class Employee {
     long id;
     String name;
     int age;
-    double salary;
     String gender;
-    int fixedBugs;
-    int defaultBugRate;
+    double salary;
     double totalSalary;
 
     public Employee() {
-    }
-
-
-    public double countSalaryAndBonus() {
-        double payFixedBugs = fixedBugs * 0.02;
-        double payDefaultBugRate = (defaultBugRate >= 12 ? (0) : (salary * (0.05)));
-        totalSalary = salary + payFixedBugs + payDefaultBugRate;
-        return totalSalary;
     }
 
     public String getName() {

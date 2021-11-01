@@ -8,16 +8,26 @@ public class EmployeeService {
         this.employees = employees;
     }
 
-    public void printEmployees() {
+    void printEmployees() {
         for (Employee employee : employees) {
             if (employee != null) {
                 System.out.print("id " + employee.id);
+                System.out.print(", " + employee.getClass().getSimpleName());
                 System.out.print(", name " + employee.name);
                 System.out.print(", age " + employee.age);
                 System.out.print(", salary " + employee.salary);
-                System.out.print(", gender " + employee.gender);
-                System.out.print(", fixedBugs " + employee.fixedBugs);
-                System.out.println(", defaultBugRate " + employee.defaultBugRate + ".");
+                System.out.println(", gender " + employee.gender);
+
+                if (employee instanceof Designer) {
+                    Designer designer = (Designer) employee;
+                    System.out.print("and rate " + designer.rate);
+                    System.out.println(", worked days " + designer.workedDays);
+                }
+
+                if (employee instanceof Developer) {
+                    Developer developer = (Developer) employee;
+                    System.out.print("and fixed bugs " + developer.fixedBugs);
+                }
             }
         }
     }
@@ -25,11 +35,25 @@ public class EmployeeService {
     double calculateSalaryAndBonus() {
         double totalSalaryMonth = 0.0;
         for (Employee employee : employees) {
-            employee.countSalaryAndBonus();
-            totalSalaryMonth += employee.totalSalary;
+            if (employee instanceof Designer) {
+                Designer designer = (Designer) employee;
+                double totalSalary = designer.salary + designer.rate * designer.workedDays;
+                totalSalaryMonth += totalSalary;
+            }
+            if (employee instanceof Developer) {
+                Developer developer = (Developer) employee;
+                double totalSalary = (developer.salary + developer.fixedBugs * 0.05) * (developer.randomBoolean ? 2 : 0);
+                totalSalaryMonth += totalSalary;
+            }
+            if (employee instanceof Manager) {
+                Manager manager = (Manager) employee;
+                double totalSalary = manager.salary;
+                totalSalaryMonth += totalSalary;
+            }
         }
         return totalSalaryMonth;
     }
+
 
     public Employee getById(long id) {
         for (Employee employee : employees) {
@@ -49,6 +73,7 @@ public class EmployeeService {
         throw new IllegalStateException("Can't find employee with name: " + name);
     }
 
+
     Employee removeById(long id) {
         Employee employee = null;
         for (int i = 0; i < employees.length; i++) {
@@ -60,6 +85,8 @@ public class EmployeeService {
         }
         return employee;
     }
+
+
 
     public void sortByName() {
         for (int i = 0; i < employees.length - 1; i++) {
@@ -73,26 +100,20 @@ public class EmployeeService {
         }
     }
 
-    public Employee[] sortByNameAndSalary() {
-        for (int i = 0; i < employees.length; i++) {
-            for (int j = i + 1; j < employees.length; j++) {
-                if ((employees[i].name.compareTo(employees[j].name) > 0) && (employees[i].salary > employees[j].salary)) {
-                    Employee buf = employees[i];
-                    employees[i] = employees[j];
-                    employees[j] = buf;
-                }
-            }
-            ;
-        }
-        return employees;
-    }
 
     public Employee edit(Employee employee) {
         for (int i = 0; i < employees.length; i++)
             if (employees[i].id == employee.id) {
-                employees[i] = new EmployeeFactory().generateEmployees(1)[0];
+                employees[i] = new EmployeeFactory().getRandomEmployees(1)[0];
             }
         return employee;
     }
-}
 
+    public void add(Employee employee) {
+        Employee[] employeesAfterAdd = new Employee[this.employees.length + 1];
+        System.arraycopy(this.employees, 0, employeesAfterAdd, 0, this.employees.length);
+        employeesAfterAdd[employeesAfterAdd.length - 1] = employee;
+        this.employees = employeesAfterAdd;
+
+    }
+}
