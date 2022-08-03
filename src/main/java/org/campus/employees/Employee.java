@@ -1,5 +1,8 @@
 package org.campus.employees;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Employee {
 
     long id;
@@ -7,6 +10,8 @@ public class Employee {
     int age;
     String gender;
     double salary;
+
+
     double totalSalary;
 
     public Employee() {
