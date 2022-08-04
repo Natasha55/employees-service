@@ -1,0 +1,16 @@
+2022-08-04 17:39:45,502 INFO [main] EmployeeFactory [EmployeeFactory.java:45] add DESIGNER female name Evgenia, gender null-gender
+2022-08-04 17:39:45,505 INFO [main] EmployeeFactory [EmployeeFactory.java:52] where age = 46, salary = 3626.0, rate = 0.17311707212354643, worked days = 26
+2022-08-04 17:39:45,506 INFO [main] EmployeeFactory [EmployeeFactory.java:45] add DESIGNER female name Alla, gender null-gender
+2022-08-04 17:39:45,506 INFO [main] EmployeeFactory [EmployeeFactory.java:52] where age = 24, salary = 5167.0, rate = 0.15043037970713768, worked days = 15
+2022-08-04 17:39:45,506 INFO [main] EmployeeFactory [EmployeeFactory.java:45] add DESIGNER female name Tonya, gender female
+2022-08-04 17:39:45,506 INFO [main] EmployeeFactory [EmployeeFactory.java:52] where age = 71, salary = 27351.0, rate = 0.7066059812170407, worked days = 23
+2022-08-04 17:39:45,506 INFO [main] EmployeeFactory [EmployeeFactory.java:45] add DESIGNER female name Alla, gender female
+2022-08-04 17:39:45,506 INFO [main] EmployeeFactory [EmployeeFactory.java:52] where age = 66, salary = 20173.0, rate = 0.9011062697151735, worked days = 18
+2022-08-04 17:39:45,507 INFO [main] EmployeeFactory [EmployeeFactory.java:75] add MANAGER female name Tonya, gender female
+2022-08-04 17:39:45,507 INFO [main] EmployeeFactory [EmployeeFactory.java:80] where age = 50, salary = 16925.0
+2022-08-04 17:39:45,507 INFO [main] EmployeeFactory [EmployeeFactory.java:75] add MANAGER female name Tonya, gender null-gender
+2022-08-04 17:39:45,507 INFO [main] EmployeeFactory [EmployeeFactory.java:80] where age = 21, salary = 11404.0
+2022-08-04 17:39:45,509 INFO [main] EmployeeFactory [EmployeeFactory.java:102] add DEVELOPER female name Vika, gender null-gender
+2022-08-04 17:39:45,509 INFO [main] EmployeeFactory [EmployeeFactory.java:109] where age = 68, salary = 4779.0, fixed bugs = 1
+2022-08-04 17:39:45,511 INFO [main] EmployeeFactory [EmployeeFactory.java:75] add MANAGER female name Vika, gender null-gender
+2022-08-04 17:39:45,511 INFO [main] EmployeeFactory [EmployeeFactory.java:80] where age = 64, salary = 27170.0

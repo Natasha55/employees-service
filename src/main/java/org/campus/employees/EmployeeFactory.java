@@ -2,19 +2,15 @@ package org.campus.employees;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Random;
 
 public class EmployeeFactory {
 
-    private static final Logger logger = LoggerFactory.getLogger(EmployeeFactory.class);
-
+    private static final Logger LOGGER = LoggerFactory.getLogger("EmployeeFactory");
     public static int autoIncrement = 0;
-
     public String[] getManName() {
         return manName;
     }
-
     public String[] getWomanName() {
         return womanName;
     }
@@ -23,11 +19,10 @@ public class EmployeeFactory {
 
     String[] womanName = {"Tonya", "Alla", "Babe", "Vika", "Evgenia"};
 
-
     Designer[] generateDesigners(int size) {
         Random random = new Random();
-
         Designer[] designers = new Designer[size];
+
         for (int i = 0; i < size; i++) {
             Designer designer = new Designer();
             designer.id = ++autoIncrement;
@@ -37,19 +32,19 @@ public class EmployeeFactory {
             if (designer.gender.equals("male") |
                     designer.gender.equals("neutral")) {
                 designer.name = manName[random.nextInt(5)];
-                logger.info("add DESIGNER male name {}, gender {}", designer.name, designer.gender);
+                LOGGER.info("add DESIGNER male name {}, gender {}", designer.name, designer.gender);
             }
             if (designer.gender.equals("female") |
                     designer.gender.equals("null-gender")) {
                 designer.name = womanName[random.nextInt(5)];
-                logger.info("add DESIGNER female name {}, gender {}", designer.name, designer.gender);
+                LOGGER.info("add DESIGNER female name {}, gender {}", designer.name, designer.gender);
             }
             designer.age = 18 + random.nextInt(55);
             designer.salary = 2500 + random.nextInt(32000);
             designer.rate = random.nextDouble();
             designer.workedDays = 12 + random.nextInt(24);
             designers[i] = designer;
-            logger.debug("where age = {}, salary = {}, rate = {}, worked days = {}",
+            LOGGER.info("where age = {}, salary = {}, rate = {}, worked days = {}",
                     designer.age, designer.salary, designer.rate, designer.workedDays);
         }
         return designers;
@@ -67,17 +62,17 @@ public class EmployeeFactory {
             if (manager.gender.equals("male") |
                     manager.gender.equals("neutral")) {
                 manager.name = manName[random.nextInt(5)];
-                logger.info("add MANAGER male name {}, gender {}", manager.name, manager.gender);
+                LOGGER.info("add MANAGER male name {}, gender {}", manager.name, manager.gender);
             }
             if (manager.gender.equals("female") |
                     manager.gender.equals("null-gender")) {
                 manager.name = womanName[random.nextInt(5)];
-                logger.info("add MANAGER female name {}, gender {}", manager.name, manager.gender);
+                LOGGER.info("add MANAGER female name {}, gender {}", manager.name, manager.gender);
             }
             manager.age = 18 + random.nextInt(55);
             manager.salary = 2500 + random.nextInt(32000);
             managers[i] = manager;
-            logger.debug("where age = {}, salary = {}", manager.age, manager.salary);
+            LOGGER.info("where age = {}, salary = {}", manager.age, manager.salary);
         }
         return managers;
     }
@@ -94,23 +89,22 @@ public class EmployeeFactory {
             if (developer.gender.equals("male") |
                     developer.gender.equals("neutral")) {
                 developer.name = manName[random.nextInt(5)];
-                logger.info("add DEVELOPER male name {}, gender {}", developer.name, developer.gender);
+                LOGGER.info("add DEVELOPER male name {}, gender {}", developer.name, developer.gender);
             }
             if (developer.gender.equals("female") |
                     developer.gender.equals("null-gender")) {
                 developer.name = womanName[random.nextInt(5)];
-                logger.info("add DEVELOPER female name {}, gender {}", developer.name, developer.gender);
+                LOGGER.info("add DEVELOPER female name {}, gender {}", developer.name, developer.gender);
             }
             developer.age = 18 + random.nextInt(55);
             developer.salary = 2500 + random.nextInt(32000);
             developer.fixedBugs = random.nextInt(10);
             developer.randomBoolean = random.nextBoolean();
             developers[i] = developer;
-            logger.debug("where age = {}, salary = {}, fixed bugs = {}", developer.age, developer.salary, developer.fixedBugs);
+            LOGGER.info("where age = {}, salary = {}, fixed bugs = {}", developer.age, developer.salary, developer.fixedBugs);
         }
         return developers;
     }
-
 
     Employee[] getRandomEmployees(int size) {
         Random random = new Random();
